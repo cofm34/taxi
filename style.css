@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://cdn.bio.link/themes/backgrounds/rainy_night.jpg') center/cover no-repeat fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    margin: 20px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Chỉ giữ lại hiệu ứng giọt nước */
+.raindrop {
+    position: absolute;
+    pointer-events: none;
+    width: 2px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: raindrop 1.5s linear infinite;
+}
+
+@keyframes raindrop {
+    0% {
+        transform: translateY(-10px) scale(1);
+        opacity: 0.3;
+    }
+    80% {
+        transform: translateY(calc(100vh - 20px)) scale(1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(calc(100vh - 20px)) scale(2.5);
+        opacity: 0;
+        height: 3px;
+    }
+}
+
+.header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.header-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+h1 {
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.tagline {
+    color: #666;
+    font-size: 1.2em;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.service-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.info-item {
+    flex: 1;
+    min-width: 150px;
+    max-width: 200px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-item i {
+    font-size: 1.8em;
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.info-item h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.info-item ul {
+    list-style: none;
+    text-align: left;
+    padding-left: 15px;
+}
+
+.info-item ul li {
+    margin: 8px 0;
+    color: #555;
+    position: relative;
+    font-size: 0.9em;
+}
+
+.info-item ul li:before {
+    content: "✓";
+    color: #4CAF50;
+    position: absolute;
+    left: -15px;
+}
+
+.contact-info {
+    margin: 30px 0;
+}
+
+.highlight {
+    color: #e74c3c;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.social-btn:hover {
+    transform: scale(1.05);
+}
+
+.social-btn i, .social-btn .zalo-icon {
+    margin-right: 15px;
+    font-size: 24px;
+}
+
+.facebook {
+    background: #1877f2;
+}
+
+.line {
+    background: #00B900;
+}
+
+.zalo {
+    background: #0068ff;
+}
+
+.phone {
+    background: #f19305;
+}
+
+.zalo-icon {
+    font-weight: bold;
+    font-style: normal;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .service-info {
+        gap: 10px;
+    }
+
+    .info-item {
+        min-width: 45%;
+        padding: 12px;
+    }
+
+    .info-item h3 {
+        font-size: 1em;
+    }
+
+    .info-item ul li {
+        font-size: 0.85em;
+    }
+
+    .tagline {
+        font-size: 1em;
+    }
+
+    .header-image {
+        width: 40px;
+        height: 40px;
+    }
+} 
+
+.taxi-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.taxi-container {
+  border-radius: 10px;
+  overflow: hidden;
+}
+  
