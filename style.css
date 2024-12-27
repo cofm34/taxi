@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Chakra Petch', sans-serif;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                 url('https://cdn.bio.link/themes/backgrounds/rainy_night.jpg') center/cover no-repeat fixed;
     min-height: 100vh;
@@ -36,7 +36,7 @@ body {
     left: 0;
     width: 200px;
     height: 200px;
-    background: url('/img/hoa-dao.png') no-repeat;
+    background: url('./img/hoa-dao.png') no-repeat;
     background-size: contain;
     opacity: 0.8;
     pointer-events: none;
@@ -50,7 +50,7 @@ body {
     right: 0;
     width: 150px;
     height: 150px;
-    background: url('/img/hoa-mai.png') no-repeat;
+    background: url('./img/hoa-mai.png') no-repeat;
     background-size: contain;
     opacity: 0.8;
     pointer-events: none;
@@ -277,5 +277,23 @@ h1 {
 .taxi-container {
   border-radius: 10px;
   overflow: hidden;
+}
+
+/* Áp dụng font cho các tiêu đề */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 600;
+}
+
+/* Áp dụng font cho các nút */
+.social-btn {
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 500;
+}
+
+/* Áp dụng font cho highlight text */
+.highlight {
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 700;
 }
   
