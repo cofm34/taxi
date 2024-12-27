@@ -18,41 +18,64 @@ body {
 .container {
     text-align: center;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(255, 185, 0, 0.3);
     margin: 20px;
     max-width: 600px;
     width: 90%;
     position: relative;
     overflow: hidden;
+    border: 2px solid #FFD700;
+    background: rgba(0, 0, 0, 0.7);
 }
 
-/* Chỉ giữ lại hiệu ứng giọt nước */
-.raindrop {
+.container .hoa-dao {
+    content: '';
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: url('/img/hoa-dao.png') no-repeat;
+    background-size: contain;
+    opacity: 0.8;
     pointer-events: none;
-    width: 2px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    animation: raindrop 1.5s linear infinite;
+    z-index: 0;
 }
 
-@keyframes raindrop {
-    0% {
-        transform: translateY(-10px) scale(1);
-        opacity: 0.3;
-    }
-    80% {
-        transform: translateY(calc(100vh - 20px)) scale(1);
-        opacity: 0.5;
-    }
-    100% {
-        transform: translateY(calc(100vh - 20px)) scale(2.5);
-        opacity: 0;
-        height: 3px;
-    }
+.container .hoa-mai {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: url('/img/hoa-mai.png') no-repeat;
+    background-size: contain;
+    opacity: 0.8;
+    pointer-events: none;
+    transform: rotate(0deg);
+    z-index: 0;
+}
+
+.container > *:not(.hoa-dao):not(.hoa-mai) {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes sparkle {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #FFD700;
+    border-radius: 50%;
+    animation: sparkle 1.5s linear infinite;
 }
 
 .header {
@@ -107,6 +130,8 @@ h1 {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #FFD700;
+    box-shadow: 0 2px 10px rgba(255, 185, 0, 0.2);
 }
 
 .info-item i {
@@ -146,10 +171,11 @@ h1 {
 }
 
 .highlight {
-    color: #e74c3c;
+    color: #FFD700;
     font-size: 1.2em;
     font-weight: bold;
     margin: 20px 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .social-links {
@@ -169,6 +195,9 @@ h1 {
     color: white;
     font-weight: bold;
     transition: transform 0.2s;
+    border: 1px solid #FFD700;
+    background: linear-gradient(45deg, #c41e3a, #d4af37);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .social-btn:hover {
