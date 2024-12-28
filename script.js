@@ -39,34 +39,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function createRaindrops() {
-    const container = document.querySelector('.container');
-    const createDrop = () => {
-        const drop = document.createElement('div');
-        drop.className = 'raindrop';
-        
-        // Random vị trí và kích thước
-        drop.style.left = Math.random() * 100 + '%';
-        drop.style.opacity = Math.random() * 0.3 + 0.2;
-        
-        // Random kích thước giọt nước
-        const scale = Math.random() * 0.5 + 0.5; // 0.5 đến 1
-        drop.style.transform = `scale(${scale})`;
-        
-        // Random tốc độ rơi
-        const duration = Math.random() * 0.5 + 1; // 1 đến 1.5 giây
-        drop.style.animation = `raindrop ${duration}s linear infinite`;
-        
-        container.appendChild(drop);
-        
-        // Xóa giọt nước
-        setTimeout(() => {
-            drop.remove();
-        }, duration * 1000);
-    };
-
-    // Tạo giọt mưa mới mỗi 50ms
-    setInterval(createDrop, 50);
-}
-
-document.addEventListener('DOMContentLoaded', createRaindrops); 

@@ -167,8 +167,25 @@ function updateCanvasSize() {
     ch = container.offsetHeight;
     canvas.width = cw;
     canvas.height = ch;
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
     updateTitlePosition();
 }
+
+// Thêm MutationObserver để theo dõi thay đổi kích thước container
+const observer = new MutationObserver(updateCanvasSize);
+observer.observe(container, { 
+    attributes: true, 
+    attributeFilter: ['style'], 
+    subtree: false 
+});
+
+// Đảm bảo canvas được cập nhật khi DOM loaded
+document.addEventListener('DOMContentLoaded', function() {
+    updateCanvasSize();
+    // Thêm timeout để đảm bảo kích thước được cập nhật sau khi trang đã load hoàn toàn
+    setTimeout(updateCanvasSize, 100);
+});
 
 // Main loop
 function loop() {

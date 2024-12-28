@@ -20,13 +20,17 @@ body {
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(255, 185, 0, 0.3);
-    margin: 20px;
+    margin: 20px auto;
     max-width: 600px;
     width: 90%;
+    min-height: 600px;
     position: relative;
     overflow: hidden;
     border: 2px solid #FFD700;
     background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .container .hoa-dao {
@@ -64,8 +68,8 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     z-index: 0;
     pointer-events: none;
 }
@@ -92,7 +96,7 @@ body {
 }
 
 .header {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -131,7 +135,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
-    margin-bottom: 30px;
+    margin: 20px 0;
     padding: 0 10px;
 }
 
@@ -197,6 +201,8 @@ h1 {
     gap: 15px;
     max-width: 300px;
     margin: 0 auto;
+    margin-top: auto;
+    padding-top: 20px;
 }
 
 .social-btn {
@@ -245,8 +251,9 @@ h1 {
 
 @media (max-width: 480px) {
     .container {
-        padding: 20px;
+        min-height: 500px;
         margin: 10px;
+        padding: 15px;
     }
 
     h1 {
