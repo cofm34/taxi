@@ -295,4 +295,20 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Chakra Petch', sans-serif;
     font-weight: 700;
 }
+
+/* Thêm style cho ảnh thumbnail (để preview) */
+.thumbnail-preview {
+    width: 1200px;
+    height: 630px;
+    background: linear-gradient(45deg, #c41e3a, #d4af37);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Chakra Petch', sans-serif;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
   
