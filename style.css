@@ -20,13 +20,17 @@ body {
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(255, 185, 0, 0.3);
-    margin: 20px;
+    margin: 20px auto;
     max-width: 600px;
     width: 90%;
+    min-height: 600px;
     position: relative;
     overflow: hidden;
     border: 2px solid #FFD700;
     background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .container .hoa-dao {
@@ -34,8 +38,8 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     background: url('./img/hoa-dao.png') no-repeat;
     background-size: contain;
     opacity: 0.8;
@@ -47,6 +51,8 @@ body {
     content: '';
     position: absolute;
     bottom: 0;
+    top: 0;
+
     right: 0;
     width: 150px;
     height: 150px;
@@ -58,10 +64,21 @@ body {
     z-index: 0;
 }
 
-.container > *:not(.hoa-dao):not(.hoa-mai) {
-    position: relative;
-    z-index: 1;
+.container > canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 0;
+    pointer-events: none;
 }
+
+.container > *:not(canvas) {
+    position: relative;
+    z-index: 2;
+}
+
 
 @keyframes sparkle {
     0% { opacity: 0; }
@@ -79,7 +96,7 @@ body {
 }
 
 .header {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -118,7 +135,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
-    margin-bottom: 30px;
+    margin: 20px 0;
     padding: 0 10px;
 }
 
@@ -155,7 +172,8 @@ h1 {
     margin: 8px 0;
     color: #ffffff;
     position: relative;
-    font-size: 0.9em;
+    font-size: 16px;
+    line-height: 1.4;
 }
 
 .info-item ul li:before {
@@ -183,6 +201,8 @@ h1 {
     gap: 15px;
     max-width: 300px;
     margin: 0 auto;
+    margin-top: auto;
+    padding-top: 20px;
 }
 
 .social-btn {
@@ -231,8 +251,9 @@ h1 {
 
 @media (max-width: 480px) {
     .container {
-        padding: 20px;
+        min-height: 500px;
         margin: 10px;
+        padding: 15px;
     }
 
     h1 {
@@ -245,7 +266,7 @@ h1 {
 
     .info-item {
         min-width: 45%;
-        padding: 12px;
+        padding: 10px;
     }
 
     .info-item h3 {
@@ -253,7 +274,10 @@ h1 {
     }
 
     .info-item ul li {
-        font-size: 0.85em;
+        font-size: 11px;
+        line-height: 1.3;
+        margin: 5px 0;
+        padding-right: 5px;
     }
 
     .tagline {
