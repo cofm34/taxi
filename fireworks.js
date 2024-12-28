@@ -6,7 +6,6 @@ window.requestAnimFrame = (function() {
             window.setTimeout(callback, 1000 / 60);
         };
 })();
-
 // Khởi tạo canvas
 var canvas = document.getElementById('canvas'),
     ctx = canvas.getContext('2d'),
@@ -23,23 +22,19 @@ var canvas = document.getElementById('canvas'),
     mousedown = false,
     mx,
     my;
-
 // Thêm biến để lưu vị trí của text
 var titleElement = document.querySelector('h1');
 var titlePosition = {x: 0, y: 0};
-
 // Hàm random
 function random(min, max) {
     return Math.random() * (max - min) + min;
 }
-
 // Hàm tính khoảng cách
 function calculateDistance(p1x, p1y, p2x, p2y) {
     var xDistance = p1x - p2x,
         yDistance = p1y - p2y;
     return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
 }
-
 // Constructor cho Firework
 function Firework(sx, sy, tx, ty) {
     // Vị trí bắt đầu và kết thúc
@@ -66,7 +61,6 @@ function Firework(sx, sy, tx, ty) {
     this.brightness = random(50, 70);
     this.targetRadius = 1;
 }
-
 // Cập nhật Firework
 Firework.prototype.update = function(index) {
     this.coordinates.pop();
@@ -91,7 +85,6 @@ Firework.prototype.update = function(index) {
         this.y += vy;
     }
 }
-
 // Vẽ Firework
 Firework.prototype.draw = function() {
     ctx.beginPath();
@@ -101,7 +94,6 @@ Firework.prototype.draw = function() {
     ctx.strokeStyle = 'hsl(' + hue + ', 100%, ' + this.brightness + '%)';
     ctx.stroke();
 }
-
 // Constructor cho Particle
 function Particle(x, y) {
     this.x = x;
@@ -120,7 +112,6 @@ function Particle(x, y) {
     this.alpha = 1;
     this.decay = random(0.015, 0.03);
 }
-
 // Cập nhật Particle
 Particle.prototype.update = function(index) {
     this.coordinates.pop();
@@ -134,7 +125,6 @@ Particle.prototype.update = function(index) {
         particles.splice(index, 1);
     }
 }
-
 // Vẽ Particle
 Particle.prototype.draw = function() {
     ctx.beginPath();
@@ -144,7 +134,6 @@ Particle.prototype.draw = function() {
     ctx.strokeStyle = 'hsla(' + this.hue + ', 100%, ' + this.brightness + '%, ' + this.alpha + ')';
     ctx.stroke();
 }
-
 // Tạo particles
 function createParticles(x, y) {
     var particleCount = 30;
@@ -152,7 +141,6 @@ function createParticles(x, y) {
         particles.push(new Particle(x, y));
     }
 }
-
 // Hàm cập nhật vị trí của text
 function updateTitlePosition() {
     var rect = titleElement.getBoundingClientRect();
@@ -160,33 +148,14 @@ function updateTitlePosition() {
     titlePosition.x = rect.left + rect.width/2 - containerRect.left;
     titlePosition.y = rect.top + rect.height/2 - containerRect.top;
 }
-
 // Cập nhật hàm updateCanvasSize để bao gồm cả việc cập nhật vị trí text
 function updateCanvasSize() {
     cw = container.offsetWidth;
     ch = container.offsetHeight;
     canvas.width = cw;
     canvas.height = ch;
-    canvas.style.width = '100%';
-    canvas.style.height = '100%';
     updateTitlePosition();
 }
-
-// Thêm MutationObserver để theo dõi thay đổi kích thước container
-const observer = new MutationObserver(updateCanvasSize);
-observer.observe(container, { 
-    attributes: true, 
-    attributeFilter: ['style'], 
-    subtree: false 
-});
-
-// Đảm bảo canvas được cập nhật khi DOM loaded
-document.addEventListener('DOMContentLoaded', function() {
-    updateCanvasSize();
-    // Thêm timeout để đảm bảo kích thước được cập nhật sau khi trang đã load hoàn toàn
-    setTimeout(updateCanvasSize, 100);
-});
-
 // Main loop
 function loop() {
     requestAnimFrame(loop);
@@ -227,7 +196,6 @@ function loop() {
         timerTick++;
     }
 }
-
 // Thêm event listener để cập nhật vị trí khi scroll
 window.addEventListener('scroll', updateTitlePosition);
 window.addEventListener('resize', updateCanvasSize);
