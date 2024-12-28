@@ -60,10 +60,21 @@ body {
     z-index: 0;
 }
 
-.container > *:not(.hoa-dao):not(.hoa-mai) {
-    position: relative;
-    z-index: 1;
+.container > canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
 }
+
+.container > *:not(canvas) {
+    position: relative;
+    z-index: 2;
+}
+
 
 @keyframes sparkle {
     0% { opacity: 0; }
